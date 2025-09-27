@@ -1,80 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Capstone Website</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-      background: #f4f4f9;
-      color: #333;
-    }
-    header {
-      background: #4CAF50;
-      color: white;
-      padding: 20px 0;
-      text-align: center;
-    }
-    nav {
-      margin: 10px 0;
-    }
-    nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    .container {
-      width: 90%;
-      max-width: 1000px;
-      margin: 20px auto;
-      padding: 20px;
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    footer {
-      background: #333;
-      color: #fff;
-      text-align: center;
-      padding: 15px 0;
-      margin-top: 30px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>DPS - Data Processing System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(120deg, #2d5be3 0%, #4f8cff 100%);
+            color: #222;
+        }
+        .header {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 24px 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo-title {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .logo-icon {
+            font-size: 2.2rem;
+            color: #fff;
+            background: #2d5be3;
+            border-radius: 50%;
+            padding: 10px;
+            box-shadow: 0 2px 8px #1a3e8a44;
+        }
+        .title {
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 8px #1a3e8a33;
+        }
+        .nav-buttons {
+            display: flex;
+            gap: 18px;
+        }
+        .nav-buttons button {
+            padding: 12px 32px;
+            font-size: 1rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 8px;
+            background: #fff;
+            color: #2d5be3;
+            cursor: pointer;
+            box-shadow: 0 2px 8px #1a3e8a22;
+            transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+        }
+        .nav-buttons button:hover {
+            background: #2d5be3;
+            color: #fff;
+            box-shadow: 0 4px 16px #1a3e8a44;
+        }
+        .main-content {
+            max-width: 1100px;
+            margin: 48px auto 0 auto;
+            display: flex;
+            gap: 40px;
+            align-items: stretch;
+            padding: 0 24px 40px 24px;
+        }
+        .left-box {
+            flex: 1.1;
+            background: rgba(255,255,255,0.97);
+            border-radius: 18px;
+            padding: 40px 28px 32px 28px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            box-shadow: 0 4px 24px #1a3e8a22;
+        }
+        .left-box span {
+            font-weight: 700;
+            font-size: 1.3rem;
+            text-align: left;
+            color: #2d5be3;
+            margin-bottom: 18px;
+            letter-spacing: 1px;
+            display: block;
+        }
+        .left-box .desc {
+            color: #222;
+            font-size: 1.05rem;
+            margin-bottom: 22px;
+            line-height: 1.6;
+        }
+        .left-box .apply-btn {
+            margin-top: 8px;
+            padding: 14px 38px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #fff;
+            background: linear-gradient(90deg, #2d5be3 60%, #4f8cff 100%);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 2px 8px #2d5be344;
+            transition: background 0.2s, box-shadow 0.2s;
+        }
+        .left-box .apply-btn:hover {
+            background: linear-gradient(90deg, #1a3e8a 60%, #2d5be3 100%);
+            box-shadow: 0 4px 16px #1a3e8a44;
+        }
+        .right-box {
+            flex: 1;
+            background: rgba(255,255,255,0.97);
+            border-radius: 18px;
+            min-height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 4px 24px #1a3e8a22;
+            overflow: hidden;
+        }
+        .right-box .mission {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: #2d5be3;
+            font-size: 1.18rem;
+            font-weight: 600;
+            background: rgba(255,255,255,0.92);
+            padding: 32px 18px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px #e0e7ff;
+        }
+        .right-box .illustration {
+            position: absolute;
+            left: 0; top: 0; width: 100%; height: 100%;
+            background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80') center/cover no-repeat;
+            opacity: 0.18;
+            z-index: 1;
+        }
+        @media (max-width: 900px) {
+            .main-content { flex-direction: column; gap: 24px; }
+            .header, .main-content { max-width: 98vw; }
+        }
+        @media (max-width: 600px) {
+            .header, .main-content { padding: 0 8px 0 8px; }
+            .left-box, .right-box { padding: 24px 8px; }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Welcome to My Capstone Website</h1>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">About</a>
-      <a href="#">Projects</a>
-      <a href="#">Contact</a>
-    </nav>
-  </header>
-
-  <div class="container">
-    <h2>Hello, World! 🎉</h2>
-    <p>This is a starter template for your GitHub Pages site. You can edit this page with your own content.</p>
-
-    <h3>Quick Start 🚀</h3>
-    <ul>
-      <li>Change the text to describe your project.</li>
-      <li>Add images, links, or videos to showcase your work.</li>
-      <li>Create more pages and link them in the navigation above.</li>
-    </ul>
-  </div>
-
-  <footer>
-    <p>© 2025 My Capstone Website | Built with ❤️ and GitHub Pages</p>
-  </footer>
+    <div class="header">
+        <div class="logo-title">
+            <span class="logo-icon">&#128274;</span>
+            <span class="title">DPS - Data Processing System</span>
+        </div>
+        <div class="nav-buttons">
+            <button onclick="location.href='admin-login.html'">Admin Login</button>
+            <button onclick="location.href='applicant-login.html'">Applicant</button>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="left-box">
+            <span>
+                HERO SECURITY AND<br>
+                INVESTIGATION SERVICES
+            </span>
+            <div class="desc">
+                Welcome to a secure, innovative, and people-first company.<br>
+                <b>Applicants:</b> Start your journey with us and become a hero.<br>
+                <b>CEO & Admins:</b> Lead with confidence and vision.
+            </div>
+            <button class="apply-btn" onclick="location.href='apply.html'">Apply Now</button>
+        </div>
+        <div class="right-box">
+            <div class="illustration"></div>
+            <div class="mission">
+                “Your safety, our mission.<br>Join a team that makes a difference.”
+            </div>
+        </div>
+    </div>
 </body>
 </html>
 
