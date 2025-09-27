@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Applicant Login - DPS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(120deg, #2d5be3 0%, #4f8cff 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        .login-container {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+            padding: 48px 36px 36px 36px;
+            min-width: 340px;
+            max-width: 360px;
+            border: 3px solid #222;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .login-logo {
+            font-size: 2.5rem;
+            color: #2d5be3;
+            margin-bottom: 24px;
+        }
+        .login-form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        .input-group {
+            display: flex;
+            align-items: center;
+            border: 2px solid #222;
+            border-radius: 6px;
+            padding: 0 12px;
+            background: #f8faff;
+        }
+        .input-group input {
+            border: none;
+            outline: none;
+            background: transparent;
+            font-size: 1.1rem;
+            padding: 14px 0;
+            flex: 1;
+        }
+        .input-group .toggle-password {
+            cursor: pointer;
+            font-size: 1.1rem;
+            color: #888;
+        }
+        .remember-forgot {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.97rem;
+            margin-top: -10px;
+        }
+        .remember-forgot label {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .login-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .login-actions button {
+            flex: 1;
+            padding: 10px 0;
+            border: 1.5px solid #2d5be3;
+            border-radius: 6px;
+            background: #fff;
+            color: #2d5be3;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+        .login-actions button:hover {
+            background: #2d5be3;
+            color: #fff;
+        }
+        .signup-link {
+            margin-top: 18px;
+            text-align: center;
+            font-size: 0.97rem;
+        }
+        .signup-link a {
+            color: #2d5be3;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        @media (max-width: 500px) {
+            .login-container { min-width: 90vw; padding: 32px 8vw; }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-logo">&#128272;</div>
+        <form class="login-form">
+            <div class="input-group">
+                <input type="email" placeholder="Email" required>
+            </div>
+            <div class="input-group">
+                <input type="password" placeholder="Password" id="password" required>
+                <span class="toggle-password" onclick="togglePassword()">&#128065;</span>
+            </div>
+            <div class="remember-forgot">
+                <label>
+                    <input type="checkbox"> Remember me
+                </label>
+                <a href="#" style="color:#2d5be3;text-decoration:none;">Forgot Password?</a>
+            </div>
+            <div class="login-actions">
+                <button type="submit">Login</button>
+                <button type="button" onclick="location.href='signup.html'">Sign up</button>
+            </div>
+        </form>
+        <div class="signup-link">
+            No Account Yet? <a href="signup.html">Sign up</a>
+        </div>
+    </div>
+    <script>
+        function togglePassword() {
+            const pwd = document.getElementById('password');
+            pwd.type = pwd.type === 'password' ? 'text' : 'password';
+        }
+    </script>
+</body>
+</html>
